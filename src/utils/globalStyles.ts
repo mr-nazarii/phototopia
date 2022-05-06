@@ -96,7 +96,8 @@ export const globalStyles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 100,
-    marginHorizontal: 20,
+    marginLeft: 20,
+    marginRight: 10,
     marginVertical: 20,
   },
 
@@ -114,12 +115,15 @@ export const globalStyles = StyleSheet.create({
     textTransform: "uppercase",
     fontWeight: "700",
     fontSize: 12,
+    padding: 6,
   },
 
   infoWrap: {
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "flex-start",
-    height: "40%",
+    height: "45%",
+    backgroundColor: colorVariables.headerMain,
+    borderRadius: 10,
   },
 });

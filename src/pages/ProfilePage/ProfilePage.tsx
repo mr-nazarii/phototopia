@@ -20,6 +20,8 @@ function ProfilePage() {
   const { first_name, last_name, email, avatar, id } = useAppSelector(
     (state) => state.user
   );
+  const defaultImage =
+    "https://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg";
   const dispatch = useAppDispatch();
 
   const onRefresh = useCallback(() => {
@@ -42,7 +44,12 @@ function ProfilePage() {
     >
       <View style={globalStyles.profileWrapper}>
         <View style={globalStyles.profileInfoWrap}>
-          <Image style={globalStyles.profileImage} source={{ uri: avatar }} />
+          <Image
+            style={globalStyles.profileImage}
+            source={{
+              uri: avatar ? avatar : defaultImage,
+            }}
+          />
           <View style={globalStyles.infoWrap}>
             <Text style={globalStyles.profilePageText}>
               Full name: {first_name} {last_name}
