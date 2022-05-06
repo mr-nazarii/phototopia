@@ -55,7 +55,7 @@ function ProfilePage() {
           style={globalStyles.profileSignoutButton}
           onPress={() => dispatch(profileLogedToggle())}
         >
-          <Text style={globalStyles.profilePageText}>SignOut</Text>
+          <Text style={globalStyles.profilePageText}>LogOut</Text>
         </TouchableHighlight>
       </View>
     </ScrollView>

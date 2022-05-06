@@ -88,7 +88,7 @@ export const globalStyles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     backgroundColor: colorVariables.backgroundMain,
-
+    height: 140,
     borderRadius: 20,
   },
 
@@ -116,5 +116,10 @@ export const globalStyles = StyleSheet.create({
     fontSize: 12,
   },
 
-  infoWrap: {},
+  infoWrap: {
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "flex-start",
+    height: "40%",
+  },
 });

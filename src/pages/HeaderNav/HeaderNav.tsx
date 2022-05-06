@@ -43,6 +43,7 @@ const HeaderNav = () => {
         tabBarActiveTintColor: colorVariables.white,
         tabBarInactiveTintColor: colorVariables.headerMain,
         tabBarShowIcon: true,
+        tabBarIndicatorStyle: { backgroundColor: colorVariables.white },
       })}
     >
       <Tab.Screen name="FEEDS" component={FeedPage} />
