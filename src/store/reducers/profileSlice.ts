@@ -2,7 +2,7 @@ import { ProfileState } from "./../../types/profile";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: ProfileState = {
-  logedIn: false,
+  logedIn: true,
 };
 
 export const profileSlice = createSlice({
