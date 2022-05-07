@@ -36,36 +36,29 @@ function ProfilePage() {
   }, []);
 
   return (
-    <ScrollView
-      contentContainerStyle={globalStyles.scrollView}
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-      }
-    >
-      <View style={globalStyles.profileWrapper}>
-        <View style={globalStyles.profileInfoWrap}>
-          <Image
-            style={globalStyles.profileImage}
-            source={{
-              uri: avatar ? avatar : defaultImage,
-            }}
-          />
-          <View style={globalStyles.infoWrap}>
-            <Text style={globalStyles.profilePageText}>
-              Full name: {first_name} {last_name}
-            </Text>
-            <Text style={globalStyles.profilePageText}>Email: {email}</Text>
-          </View>
+    <View style={globalStyles.profileWrapper}>
+      <View style={globalStyles.profileInfoWrap}>
+        <Image
+          style={globalStyles.profileImage}
+          source={{
+            uri: avatar ? avatar : defaultImage,
+          }}
+        />
+        <View style={globalStyles.infoWrap}>
+          <Text style={globalStyles.profilePageText}>
+            Full name: {first_name} {last_name}
+          </Text>
+          <Text style={globalStyles.profilePageText}>Email: {email}</Text>
         </View>
-        <TouchableHighlight
-          underlayColor={colorVariables.headerMain}
-          style={globalStyles.profileSignoutButton}
-          onPress={() => dispatch(profileLogedToggle())}
-        >
-          <Text style={globalStyles.profilePageText}>LogOut</Text>
-        </TouchableHighlight>
       </View>
-    </ScrollView>
+      <TouchableHighlight
+        underlayColor={colorVariables.headerMain}
+        style={globalStyles.profileSignoutButton}
+        onPress={() => dispatch(profileLogedToggle())}
+      >
+        <Text style={globalStyles.profilePageText}>LogOut</Text>
+      </TouchableHighlight>
+    </View>
   );
 }
 

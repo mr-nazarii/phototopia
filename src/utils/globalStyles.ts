@@ -67,10 +67,10 @@ export const globalStyles = StyleSheet.create({
   loginImage: { width: 300, height: 200, position: "relative", top: -30 },
 
   scrollView: {
-    flex: 1,
-    backgroundColor: "pink",
+    backgroundColor: colorVariables.backgroundSecondary,
+    flexGrow: 1,
     alignItems: "center",
-    justifyContent: "center",
+    paddingTop: 20,
   },
 
   profileWrapper: {
@@ -81,6 +81,7 @@ export const globalStyles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: 20,
     paddingVertical: 20,
+    backgroundColor: colorVariables.backgroundSecondary,
   },
 
   profileInfoWrap: {
@@ -125,5 +126,27 @@ export const globalStyles = StyleSheet.create({
     height: "45%",
     backgroundColor: colorVariables.headerMain,
     borderRadius: 10,
+  },
+
+  imageWrap: {
+    width: 310,
+    height: 200,
+    marginBottom: 20,
+  },
+
+  image: {
+    borderRadius: 14,
+    width: "100%",
+    height: 200,
+    position: "absolute",
+  },
+  imageAuthor: {
+    width: "100%",
+    backgroundColor: colorVariables.backgroundImage,
+    position: "absolute",
+    bottom: 0,
+    padding: 10,
+    borderBottomLeftRadius: 14,
+    borderBottomRightRadius: 14,
   },
 });
