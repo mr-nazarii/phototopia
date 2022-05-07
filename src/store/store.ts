@@ -1,3 +1,4 @@
+import imagesReducer from "./reducers/imagesSlice";
 import profileReducer from "./reducers/profileSlice";
 import userReducer from "./reducers/userSlice";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
@@ -5,6 +6,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 const rootReducer = combineReducers({
   user: userReducer,
   profile: profileReducer,
+  images: imagesReducer,
 });
 
 export const store = configureStore({
