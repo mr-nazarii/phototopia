@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: any = {
-  images: null,
+  images: [],
   loading: false,
   error: false,
 };

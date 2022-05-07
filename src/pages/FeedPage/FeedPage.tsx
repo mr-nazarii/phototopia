@@ -42,10 +42,17 @@ function FeedPage() {
       author: "Laaa",
     },
   ];
+  let page = 1;
+  const images = useAppSelector((state) => state.images.images);
 
-  const images = useAppSelector((state) => state.images);
+  const randomIntFromInterval = (min: number, max: number) => {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  };
 
   const onRefresh = useCallback(() => {
+    page = randomIntFromInterval(1, 40);
+    dispatch(fetchImages(page));
+
     setRefreshing(true);
     setTimeout(() => {
       setRefreshing(false);
@@ -53,16 +60,16 @@ function FeedPage() {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchImages());
-  }, []);
+    dispatch(fetchImages(page));
+  }, [page]);
 
   return (
     <>
       <FlatList
-        data={DATA}
+        data={images}
         numColumns={1}
         renderItem={({ item }) => (
-          <PhotoElement uri={item.url} author={item.author} />
+          <PhotoElement uri={item.download_url} author={item.author} />
         )}
         keyExtractor={(item) => item.id}
         contentContainerStyle={globalStyles.scrollView}

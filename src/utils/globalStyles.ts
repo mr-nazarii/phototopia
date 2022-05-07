@@ -69,8 +69,9 @@ export const globalStyles = StyleSheet.create({
   scrollView: {
     backgroundColor: colorVariables.backgroundSecondary,
     flexGrow: 1,
-    alignItems: "center",
     paddingTop: 20,
+    paddingRight: 20,
+    paddingLeft: 20,
   },
 
   profileWrapper: {
@@ -122,22 +123,22 @@ export const globalStyles = StyleSheet.create({
   infoWrap: {
     flexDirection: "column",
     justifyContent: "space-around",
-    alignItems: "flex-start",
     height: "45%",
     backgroundColor: colorVariables.headerMain,
     borderRadius: 10,
   },
 
   imageWrap: {
-    width: 310,
-    height: 200,
+    width: "100%",
+    height: 300,
+
     marginBottom: 20,
   },
 
   image: {
     borderRadius: 14,
     width: "100%",
-    height: 200,
+    height: "100%",
     position: "absolute",
   },
   imageAuthor: {

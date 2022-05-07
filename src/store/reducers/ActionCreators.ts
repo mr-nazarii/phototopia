@@ -18,15 +18,20 @@ export const fetchUsers = () => async (dispatch: AppDispatch) => {
   }
 };
 
-export const fetchImages = () => async (dispatch: AppDispatch) => {
-  try {
-    dispatch(imagesFetch());
-    const response = await axios.get<object>("https://picsum.photos/v2/list", {
-      params: { page: 1, limit: 10 },
-    });
+export const fetchImages =
+  (page = 1) =>
+  async (dispatch: AppDispatch) => {
+    try {
+      dispatch(imagesFetch());
+      const response = await axios.get<object>(
+        "https://picsum.photos/v2/list",
+        {
+          params: { page: page, limit: 10 },
+        }
+      );
 
-    dispatch(imagesFetchSuccsess(response.data));
-  } catch (e) {
-    dispatch(imagesFetchError());
-  }
-};
+      dispatch(imagesFetchSuccsess(response.data));
+    } catch (e) {
+      dispatch(imagesFetchError());
+    }
+  };
