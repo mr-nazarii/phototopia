@@ -86,17 +86,17 @@ export const globalStyles = StyleSheet.create({
   },
 
   profileInfoWrap: {
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
     backgroundColor: colorVariables.backgroundMain,
-    height: 140,
+    height: 250,
     borderRadius: 20,
   },
 
   profileImage: {
-    width: 70,
-    height: 70,
+    width: 170,
+    height: 170,
     borderRadius: 100,
     marginLeft: 20,
     marginRight: 10,
@@ -116,8 +116,27 @@ export const globalStyles = StyleSheet.create({
     color: "white",
     textTransform: "uppercase",
     fontWeight: "700",
+    fontSize: 17,
+    padding: 6,
+    textAlign: "center",
+  },
+
+  profilePageSecondaryText: {
+    color: "white",
+    textTransform: "uppercase",
+    fontWeight: "700",
     fontSize: 12,
     padding: 6,
+    textAlign: "center",
+  },
+
+  imagePageText: {
+    color: "white",
+    textTransform: "uppercase",
+    fontWeight: "700",
+    fontSize: 12,
+    padding: 6,
+    textAlign: "left",
   },
 
   infoWrap: {

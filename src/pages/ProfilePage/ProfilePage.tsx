@@ -46,9 +46,9 @@ function ProfilePage() {
         />
         <View style={globalStyles.infoWrap}>
           <Text style={globalStyles.profilePageText}>
-            Full name: {first_name} {last_name}
+            {first_name} {last_name}
           </Text>
-          <Text style={globalStyles.profilePageText}>Email: {email}</Text>
+          <Text style={globalStyles.profilePageSecondaryText}>{email}</Text>
         </View>
       </View>
       <TouchableHighlight
