@@ -8,46 +8,18 @@ import {
 } from "../../store/reducers/ActionCreators";
 import { colorVariables } from "../../utils/colors";
 import { globalStyles } from "../../utils/globalStyles";
+import { randomInt } from "../../utils/randomInt";
 
 function FeedPage() {
   const [refreshing, setRefreshing] = useState(false);
   const dispatch = useAppDispatch();
-  const DATA = [
-    {
-      id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-      url: "https://i.picsum.photos/id/1041/300/300.jpg?hmac=PosL0KGsFiR_uaOxVY5r9pvWRIyIpn07BSV53jT6We0",
-      author: "Laaa",
-    },
-    {
-      id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-      url: "https://i.picsum.photos/id/1041/300/300.jpg?hmac=PosL0KGsFiR_uaOxVY5r9pvWRIyIpn07BSV53jT6We0",
-      author: "Laaa",
-    },
-    {
-      id: "58694a0f-3da1-471f-bd96-145571e29d72",
-      url: "https://i.picsum.photos/id/1041/300/300.jpg?hmac=PosL0KGsFiR_uaOxVY5r9pvWRIyIpn07BSV53jT6We0",
-      author: "Laaa",
-    },
-    {
-      id: "-145571e29d72",
-      url: "https://i.picsum.photos/id/1041/300/300.jpg?hmac=PosL0KGsFiR_uaOxVY5r9pvWRIyIpn07BSV53jT6We0",
-      author: "Laaa",
-    },
-    {
-      id: "-1571e29d72",
-      url: "https://i.picsum.photos/id/1041/300/300.jpg?hmac=PosL0KGsFiR_uaOxVY5r9pvWRIyIpn07BSV53jT6We0",
-      author: "Laaa",
-    },
-  ];
+
+  const usedPages: any[] = [];
   let page = 1;
   const images = useAppSelector((state) => state.images.images);
 
-  const randomIntFromInterval = (min: number, max: number) => {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  };
-
   const onRefresh = useCallback(() => {
-    page = randomIntFromInterval(1, 40);
+    page = randomInt(1, 40);
     dispatch(fetchImages(page));
 
     setRefreshing(true);
@@ -57,6 +29,7 @@ function FeedPage() {
   }, []);
 
   useEffect(() => {
+    page = randomInt(1, 40);
     dispatch(fetchImages(page));
   }, [page]);
 
@@ -78,8 +51,7 @@ function FeedPage() {
           />
         }
         onEndReached={() => {
-          page = randomIntFromInterval(1, 40);
-
+          page = randomInt(1, 40);
           dispatch(fetchNewImages(page));
         }}
         onEndReachedThreshold={0.1}
