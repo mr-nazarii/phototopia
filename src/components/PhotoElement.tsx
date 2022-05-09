@@ -14,7 +14,7 @@ const PhotoElement = ({ uri, author }: any) => {
         }}
       />
       <View style={globalStyles.imageAuthor}>
-        <Text style={globalStyles.profilePageText}>
+        <Text style={globalStyles.imagePageText}>
           {author ? author : "..."}
         </Text>
       </View>
