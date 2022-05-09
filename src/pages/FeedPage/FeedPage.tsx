@@ -30,6 +30,7 @@ function FeedPage() {
 
   useEffect(() => {
     page = randomInt(1, 40);
+    usedPages.push(page);
     dispatch(fetchImages(page));
   }, [page]);
 
@@ -51,8 +52,16 @@ function FeedPage() {
           />
         }
         onEndReached={() => {
-          page = randomInt(1, 40);
-          dispatch(fetchNewImages(page));
+          while (true) {
+            page = randomInt(1, 40);
+
+            if (!usedPages.includes(page)) {
+              usedPages.push(page);
+              dispatch(fetchNewImages(page));
+              break;
+            }
+            continue;
+          }
         }}
         onEndReachedThreshold={0.1}
       ></FlatList>
