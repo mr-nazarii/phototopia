@@ -15,10 +15,17 @@ export const imagesSlice = createSlice({
       state.loading = true;
     },
     imagesFetchSuccsess(state, action: PayloadAction<any>) {
-      state.loading = true;
+      state.loading = false;
       const data = action.payload;
-
+      state.images = [];
       state.images = data;
+    },
+    imagesAddNew(state, action: PayloadAction<any>) {
+      state.loading = false;
+      const data = action.payload;
+      const newData = [...state.images, ...data];
+
+      state.images = newData;
     },
     imagesFetchError(state) {
       state.error = "Something went wrong";
@@ -26,7 +33,11 @@ export const imagesSlice = createSlice({
   },
 });
 
-export const { imagesFetch, imagesFetchSuccsess, imagesFetchError } =
-  imagesSlice.actions;
+export const {
+  imagesFetch,
+  imagesFetchSuccsess,
+  imagesFetchError,
+  imagesAddNew,
+} = imagesSlice.actions;
 
 export default imagesSlice.reducer;

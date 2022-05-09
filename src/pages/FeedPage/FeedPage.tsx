@@ -1,14 +1,11 @@
-import React, { useCallback, useEffect, useState } from "react";
-import {
-  FlatList,
-  RefreshControl,
-  SafeAreaView,
-  ScrollView,
-  View,
-} from "react-native";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { FlatList, RefreshControl } from "react-native";
 import PhotoElement from "../../components/PhotoElement";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { fetchImages } from "../../store/reducers/ActionCreators";
+import {
+  fetchImages,
+  fetchNewImages,
+} from "../../store/reducers/ActionCreators";
 import { colorVariables } from "../../utils/colors";
 import { globalStyles } from "../../utils/globalStyles";
 
@@ -80,9 +77,13 @@ function FeedPage() {
             onRefresh={onRefresh}
           />
         }
-      >
-        {/* https://picsum.photos/300/200 */}
-      </FlatList>
+        onEndReached={() => {
+          page = randomIntFromInterval(1, 40);
+
+          dispatch(fetchNewImages(page));
+        }}
+        onEndReachedThreshold={0.1}
+      ></FlatList>
     </>
   );
 }

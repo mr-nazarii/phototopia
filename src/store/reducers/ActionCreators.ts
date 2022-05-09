@@ -1,6 +1,7 @@
 import axios from "axios";
 import { AppDispatch } from "./../store";
 import {
+  imagesAddNew,
   imagesFetch,
   imagesFetchError,
   imagesFetchSuccsess,
@@ -31,6 +32,24 @@ export const fetchImages =
       );
 
       dispatch(imagesFetchSuccsess(response.data));
+    } catch (e) {
+      dispatch(imagesFetchError());
+    }
+  };
+
+export const fetchNewImages =
+  (page = 1) =>
+  async (dispatch: AppDispatch) => {
+    try {
+      dispatch(imagesFetch());
+      const response = await axios.get<object>(
+        "https://picsum.photos/v2/list",
+        {
+          params: { page: page, limit: 10 },
+        }
+      );
+
+      dispatch(imagesAddNew(response.data));
     } catch (e) {
       dispatch(imagesFetchError());
     }
