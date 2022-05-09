@@ -116,7 +116,7 @@ export const globalStyles = StyleSheet.create({
     color: "white",
     textTransform: "uppercase",
     fontWeight: "700",
-    fontSize: 17,
+    fontSize: 18,
     padding: 6,
     textAlign: "center",
   },
@@ -142,7 +142,7 @@ export const globalStyles = StyleSheet.create({
   infoWrap: {
     flexDirection: "column",
     justifyContent: "space-around",
-    height: "45%",
+
     backgroundColor: colorVariables.headerMain,
     borderRadius: 10,
   },

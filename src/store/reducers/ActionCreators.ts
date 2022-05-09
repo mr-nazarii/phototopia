@@ -11,7 +11,7 @@ import { userFetch, userFetchError, userFetchSuccsess } from "./userSlice";
 export const fetchUsers = () => async (dispatch: AppDispatch) => {
   try {
     dispatch(userFetch());
-    const response = await axios.get<object>("https://reqres.in/api/users/2");
+    const response = await axios.get<object>("https://reqres.in/api/users/3");
 
     dispatch(userFetchSuccsess(response.data));
   } catch (e) {
